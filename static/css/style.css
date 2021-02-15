@@ -14,3 +14,20 @@ h1 {
     padding: 5em;
 }
 
+.navbar1 {
+    display: flex;
+    flex-direction: row;
+    padding-left: 2em;
+    background-color: rgb(15, 50, 78);
+    border-color: black;
+    border-width: 2em;
+}
+
+a.signin {
+    font-size: 30px;
+    color: red;
+    text-align: right;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
