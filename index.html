@@ -28,13 +28,13 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="index.html"><i class="fa fa-book" aria-hidden="true"></i> Kindle</a>
+				      <a class="navbar-brand" href="index.html"><i aria-hidden="true"></i> SAFE ALERT APP</a>
 				    </div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      	<ul class="nav navbar-nav mu-menu navbar-right">
 					        <li><a href="#">HOME</a></li>
 					        <li><a href="#mu-book-overview">OVERVIEW</a></li>
-				            <li><a href="#mu-contact">CONTACT</a></li>
+				            <li><a href="#mu-contact">SIGN UP/SIGN IN</a></li>
 				      	</ul>
 				    </div>
 			  	</div>
@@ -45,18 +45,18 @@
 		<div class="container">
 			<div class="row">
 
-				<div class="col-md-6 col-sm-6 col-sm-push-6">
+				<!-- <div class="col-md-6 col-sm-6 col-sm-push-6">
 					<div class="mu-hero-right">
 						<img src="assets/images/ebook.png" alt="Ebook img">
 					</div>
-				</div>
+				</div> -->
 
-				<div class="col-md-6 col-sm-6 col-sm-pull-6">
+				<div class="row justify-content-md-center">
 					<div class="mu-hero-left">
-						<h1>Perfect Landing Page Template to Present Your eBook</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam saepe, recusandae quidem nulla! Eveniet explicabo perferendis aut, ab quos omnis labore laboriosam quisquam hic deserunt ipsum maxime aspernatur velit impedit.</p>
-						<a href="#" class="mu-primary-btn">Download Now!</a>
-						<span>*Avaliable in PDF, ePUB, Mobi & Kindle.</span>
+						<h1>Welcome to the world of easy and safe shopping experience</h1>
+						<p>Just wearing our wristband will make sure that you're safe from COVID-19 while shopping with our allied shop partners. You can trust us!</p>
+						<a href="#mu-contact" class="mu-primary-btn">Sign UP NOW!</a>
+						<span>*Avaliable in selected stores only.</span>
 					</div>
 				</div>	
 
@@ -73,10 +73,9 @@
 							<div class="mu-counter-block">
 								<div class="row">
 									<div class="col-md-3 col-sm-6">
-										<div class="mu-single-counter"> fNuPeople in Shop
-											<i class="fa fa-files-o" aria-hidden="true"></i>
-											<div class="counter-value" data-count="650">0</div>
-											<h5 class="mu-counter-name">Total Pages</h5>
+										<div class="mu-single-counter">
+											<h1 class="mu-counter-time">122</h1>
+											<h5 class="mu-counter-name">Customer Today</h5>
 										</div>
 									</div>
 									<!-- / Single Counter -->
@@ -85,8 +84,8 @@
 									<div class="col-md-3 col-sm-6">
 										<div class="mu-single-counter
 											<i class="fa fa-file-text-o" aria-hidden="true"></i>
-											<div class="counter-value" data-count="422">0</div>
-											<h5 class="mu-counter-name">Chapters</h5>
+											<h1 class="mu-counter-time">10:00 PM</h1>
+											<h5 class="mu-counter-name">Current Time</h5>
 										</div>
 									</div>
 									<!-- / Single Counter -->
@@ -94,9 +93,8 @@
 									<!-- Start Single Counter -->
 									<div class="col-md-3 col-sm-6">
 										<div class="mu-single-counter">
-											<i class="fa fa-users" aria-hidden="true"></i>
-											<div class="counter-value" data-count="1055">0</div>
-											<h5 class="mu-counter-name">Active Readers</h5>
+											<h1 class="mu-counter-time">12/25</h1>
+											<h5 class="mu-counter-name">Active Customers / Available Spots</h5>
 										</div>
 									</div>
 									<!-- / Single Counter -->
@@ -104,12 +102,18 @@
 									<!-- Start Single Counter -->
 									<div class="col-md-3 col-sm-6">
 										<div class="mu-single-counter">
-											<i class="fa fa-trophy" aria-hidden="true"></i>
-											<div class="counter-value" data-count="03">0</div>
-											<h5 class="mu-counter-name">Got Awards</h5>
+											<h1 class="mu-counter-time">9:58 PM</h1>
+											<h5 class="mu-counter-name">Last Entered</h5>
 										</div>
 									</div>
 									<!-- / Single Counter -->
+
+									<div class="col-md-3 col-sm-6">
+										<div class="mu-single-counter">
+											<h1 class="mu-counter-time">10:00 PM</h1>
+											<h5 class="mu-counter-name">Last Exited</h5>
+										</div>
+									</div>
 
 								</div>
 							</div>
@@ -254,9 +258,9 @@
 						<div class="mu-contact-area">
 
 							<div class="mu-heading-area">
-								<h2 class="mu-heading-title">Drop Us A Message</h2>
+								<h2 class="mu-heading-title">Sign Up with Us</h2>
 								<span class="mu-header-dot"></span>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>
+								<p>Sign Up with Safe Alert App to receive the wristband and start shopping in your favorite stores!</p>
 							</div>
 
 							<!-- Start Contact Content -->
@@ -265,17 +269,20 @@
 								<div id="form-messages"></div>
 								<form id="ajax-contact" method="post" action="mailer.php" class="mu-contact-form">
 									<div class="form-group">                
-										<input type="text" class="form-control" placeholder="Name" id="name" name="name" required>
+										<input type="email" class="form-control" placeholder="Enter Email" id="email" name="email" required>
 									</div>
 									<div class="form-group">                
-										<input type="email" class="form-control" placeholder="Enter Email" id="email" name="email" required>
+										<input type="text" class="form-control" placeholder="Enter Username" id="username" name="username" required>
 									</div>
 									<div class="form-group">                
 										<input type="password" class="form-control" placeholder="Enter Password" id="password1" name="password1" required>
 									</div>             
 									<div class="form-group">                
 										<input type="password" class="form-control" placeholder="Enter Confirm Password" id="password2" name="password2" required>
-									</div>                      
+									</div>              
+									<div class="form-group">                
+										<input type="text" class="form-control" placeholder="Name" id="name" name="name" required>
+									</div>        
 									<div class="form-group">                
 										<input type="text" class="form-control" placeholder="Surname" id="surname" name="surname" required>
 									</div>
@@ -288,28 +295,29 @@
 									<div class="form-group">                
 										<label for="gender">Gender :</label>
 											<select id="gender" name="gender" class="form-control">
-												<option value="F">Female</option>
-												<option value="M">Male</option>
+												<option value="Female">Female</option>
+												<option value="Male">Male</option>
 												<option value="Not Specified">Not Specified</option>
 											</select>
 									</div>
 									<div class="form-group">                
 										<label for="shop">Preferred Shop Catagory :</label>
 											<select id="shop" name="shop" class="form-control">
-												<option value="Banking">Banking</option>
-												<option value="Dining">Dining</option>
-												<option value="Entertainment">Entertainment</option>
-												<option value="Fashion">Fashion</option>
-												<option value="Gems">Gems</option>
-												<option value="Home and Decor">Home and Decor</option>
-												<option value="Kids">Kids</option>
-												<option value="Lifestyle">Lifestyle</option>
-												<option value="Service">Service</option>
-												<option value="Smart Kids">Smart Kids</option>
-												<option value="Sport">Sport</option>
-												<option value="Supermarket">Supermarket</option>
-												<option value="Technology">Technology</option>
-												<option value="Wellness">Wellness</option>
+												<option value="1">Banking</option>
+												<option value="2">Dining</option>
+												<option value="3">Entertainment</option>
+												<option value="4">Fashion</option>
+												<option value="5">Gems</option>
+												<option value="6">Home and Decor</option>
+												<option value="7">Kids</option>
+												<option value="8">Lifestyle</option>
+												<option value="9">Service</option>
+												<option value="10">Smart Kids</option>
+												<option value="11">Sport</option>
+												<option value="12">Supermarket</option>
+												<option value="13">Technology</option>
+												<option value="14">Wellness</option>
+												<option value="15">Other</option>
 											</select>
 									</div>
 									<button type="submit" class="mu-send-msg-btn"><span>SUBMIT</span></button>
@@ -351,6 +359,7 @@
     <script type="text/javascript" src="assets/js/counter.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
 	<script type="text/javascript" src="assets/js/custom.js"></script>
+	<script type="text/javascript" src="assets/js/jscript1.js"></script>
 	
     
   </body>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap');
 
 body,
 html {
@@ -324,8 +325,9 @@ button:focus {
 }
 
 .mu-hero-left{
-	display: inline;
-	float: left;
+	padding-left: 2em;
+	padding-right: 2em;
+	text-align: center;
 	width: 100%;
 }
 
@@ -372,6 +374,13 @@ button:focus {
 	float: left;
 	position: relative;
 	width: 100%;
+}
+
+.mu-counter-time {
+	padding-top: 1em;
+	font-size: 30px;
+	color: rgb(231, 114, 71);
+	font-family: 'Montserrat', sans-serif;
 }
 
 .mu-counter-area {
