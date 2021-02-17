@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap');
 
->>>>>>> 32818ca5332b271aa84f5581eec7d415eee2d469
 body,
 html {
   overflow-x: hidden;
@@ -871,7 +868,7 @@ counter-name {
 }
 
 .mu-contact-form .form-group input {
-  background: transparent;
+  background: white;
   color: #333;
   font-size: 15px;
   border: 1px solid #ccc;
@@ -883,7 +880,7 @@ counter-name {
 
 .mu-contact-form .form-group textarea {
   color: #333;
-  background: transparent;
+  background: white;
   border: 1px solid #ccc;
   border-radius: 20px;
   font-size: 18px;
@@ -1116,7 +1113,6 @@ counter-name {
 
   .navbar-default .navbar-collapse,
   .navbar-default .navbar-form {
-    background-color: rgba(0, 0, 0, 0.8);
     text-align: center;
   }
 

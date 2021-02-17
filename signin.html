@@ -16,6 +16,12 @@
   	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
   </head>
 
+  <style>
+	  .form-control:valid {
+		background-color:  #ffffff!important;
+		}
+  </style>
+
   <body>
 
 	<header id="mu-header" class="" role="banner">
@@ -23,12 +29,6 @@
 			<nav class="navbar navbar-default mu-navbar">
 			  	<div class="container-fluid">
 				    <div class="navbar-header">
-				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				        <span class="sr-only">Toggle navigation</span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				      </button>
 				      <a class="navbar-brand" href="index.html"><i aria-hidden="true"></i> SAFE ALERT APP</a>
 				    </div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,30 +45,31 @@
 	<section id="mu-hero">
 		<div class="container">
 			<div class="row justify-content-md-center">
-					<form action="/action_page.php" style="border:1px solid #ccc">
-						<div class="container">
+				<div class="container-proj2">
+					<form action="/action_page.php" class="mu-contact-form">
 						<h1 class="signupheader">Sign In</h1>
 						<p>Please sign in to our app SAFE ALERT SYSTEM APP.</p>
 						<hr>
-					
 						<label for="username"><b>Username</b></label>
-						<input type="text" placeholder="Enter Email" name="username" required>
-					
+						<div class="form-group">
+						<input type="text" placeholder="Enter Username" name="username" required>	
+						</div>
 						<label for="psw"><b>Password</b></label>
+						<div class="form-group">
 						<input type="password" placeholder="Enter Password" name="psw" required>
-					
+						</div>
 						<label>
 							<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
 						</label>
 						
 						<p>By creating an account you agree to our <a href="#" style="color:red">Terms & Privacy</a>.</p>
 					
-						<div class="clearfix">
-							<button type="button" class="cancelbtn">Cancel</button>
-							<button type="submit" class="signupbtn">Sign In</button>
-					  </div>
-					</div>
+						<div class="signinbutton">
+							<button type="button" class="btn btn-danger btn-lg">Cancel</button>
+							<button type="submit" class="btn btn-success btn-lg">Sign In</button>
+					   </div>
 				  </form>
+				</div>
 			</div>
         </div>
         

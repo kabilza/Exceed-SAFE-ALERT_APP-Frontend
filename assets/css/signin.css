@@ -17,14 +17,14 @@ h1.signupheader {
 
 p {
     font-size: 20px;
-    color: black;
+    color: rgb(8, 42, 85);
     text-align: left;
     font-family: 'Montserrat', sans-serif;
 }
 
 b {
     font-size: 20px;
-    color: black;
+    color: rgb(8, 42, 85);
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
@@ -93,17 +93,15 @@ input[type=text], input[type=password] {
   }
   
   /* Change styles for cancel button and signup button on extra small screens */
-  @media screen and (max-width: 600px) {
-    .cancelbtn, .signupbtn {
-       width: 100%;
-    }
+  @media screen and (max-width: 768px) {
+    
 
     .signupform {
         display: inline-block;
         background-color: grey;
         margin-bottom: 5%;
         margin-right: 20%;
-        max-width: 500px;
+        max-width: 400px;
     }
 
     h1 {
@@ -117,4 +115,44 @@ input[type=text], input[type=password] {
         position: relative;
         padding-top: 2em;
     }
+
+    .signinbutton {
+      display: flex;
+      flex: 2;
+      flex-direction: row;
+      justify-content: space-around;
+      position: relative;
+    }
+
+    .nav.navbar-nav.mu-menu.navbar-right {
+      display: flex;
+      flex-direction: row;
+    }
+
   }
+
+.container-proj2 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  padding-top: 20px;
+  border: 2px hidden;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 25px;
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  margin-top: 45px;}
+
+
+.signinbutton {
+  display: flex;
+  flex: 2;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+}
+
