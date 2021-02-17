@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap');
+
+>>>>>>> 32818ca5332b271aa84f5581eec7d415eee2d469
 body,
 html {
   overflow-x: hidden;
@@ -379,6 +384,13 @@ button:focus {
   float: left;
   position: relative;
   width: 100%;
+}
+
+.mu-counter-time {
+	padding-top: 1em;
+	font-size: 30px;
+	color: rgb(231, 114, 71);
+	font-family: 'Montserrat', sans-serif;
 }
 
 .mu-counter-area {
