@@ -124,12 +124,12 @@
   /**
    * 6. CURRENT TIME
    */
-
+  const url = "http://158.108.182.2:50006/";
   setInterval(() => {
-    var now = new Date(Date.now());
-    var formatted =
-      now.getHours() + "h " + now.getMinutes() + "m " + now.getSeconds() + "s";
-    console.log(formatted);
-    $("#current-time").html(formatted);
-  }, 1000);
+    $.get(url + "queue", function (data, status) {
+      const queues = data.Result
+      const waitList = queues.filter(queue => queue.Q_status === 0).length
+      
+    });
+  }, 2000);
 })(jQuery);

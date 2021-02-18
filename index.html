@@ -85,8 +85,77 @@
           </div>
           <div class="col-md-6 col-sm-6 col-sm-pull-6">
             <div class="mu-hero-left">
-              <a href="#mu-book-overview	" class="mu-secondary-btn">Reserve Your Queue</a><br />
-              <a href="#" class="mu-primary-btn">Check Your Queue</a>
+              <a href="#mu-book-overview	" class="mu-secondary-btn"
+                >Reserve Your Queue</a
+              ><br />
+              <a
+                href="#"
+                class="mu-primary-btn"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                Check your Queue
+              </a>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Check Your Queue
+                      </h5>
+                    </div>
+                    <div class="modal-body">
+                      <form
+                        id="checkQueue"
+                        onsubmit="event.preventDefault(); checkQueue();"
+                        class="mu-contact-form"
+                      >
+                        <div class="form-group">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Username"
+                            id="username"
+                            name="username"
+                            required
+                          />
+                        </div>
+                        <div class="form-group">
+                          <input
+                            type="password"
+                            class="form-control"
+                            placeholder="Password"
+                            id="password"
+                            name="password"
+                            required
+                          />
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                          <span>Check</span>
+                        </button>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -163,11 +232,11 @@
                 <div class="mu-heading-area">
                   <h2 class="mu-heading-title">Reserve Queue</h2>
                   <span class="mu-header-dot"></span>
-				  <div id="reserve-alert" class="alert" role="alert"></div>
+                  <div id="reserve-alert" class="alert" role="alert"></div>
                 </div>
                 <form
                   id="reserveQueue"
-				  onsubmit="event.preventDefault(); reserveQueue();"
+                  onsubmit="event.preventDefault(); reserveQueue();"
                   class="mu-contact-form"
                 >
                   <div class="form-group">
@@ -231,7 +300,7 @@
                         placeholder="Enter Email"
                         id="email"
                         name="email"
-						required
+                        required
                       />
                     </div>
                     <div class="form-group">
@@ -241,7 +310,7 @@
                         placeholder="Enter Username"
                         id="username"
                         name="username"
-						required
+                        required
                       />
                     </div>
                     <div class="form-group">
@@ -251,7 +320,7 @@
                         placeholder="Enter Password"
                         id="password1"
                         name="password1"
-						required
+                        required
                       />
                     </div>
                     <div class="form-group">
@@ -261,7 +330,7 @@
                         placeholder="Enter Confirm Password"
                         id="password2"
                         name="password2"
-						required
+                        required
                       />
                     </div>
                     <div class="form-group">
@@ -271,7 +340,7 @@
                         placeholder="Name"
                         id="name"
                         name="name"
-						required
+                        required
                       />
                     </div>
                     <div class="form-group">
@@ -281,7 +350,7 @@
                         placeholder="Surname"
                         id="surname"
                         name="surname"
-						required
+                        required
                       />
                     </div>
                     <div class="form-group">
@@ -291,7 +360,7 @@
                         placeholder="Occupation"
                         id="occupation"
                         name="occupation"
-						required
+                        required
                       />
                     </div>
                     <div class="form-group">
@@ -301,7 +370,7 @@
                         placeholder="Age"
                         id="age"
                         name="age"
-						required
+                        required
                       />
                     </div>
                     <div class="form-group">
@@ -374,70 +443,80 @@
     <script type="text/javascript" src="assets/js/custom.js"></script>
     <script type="text/javascript" src="assets/js/jscript1.js"></script>
     <script>
-	const url = "http://158.108.182.2:50006/"
+      const url = "http://158.108.182.2:50006/";
       function signUpForm() {
         let form = document.getElementById("signup");
-		if(form.elements['password1'].value !== form.elements['password2'].value) {
-			alert('Password not match!')
-			return
-		}
+        if (
+          form.elements["password1"].value !== form.elements["password2"].value
+        ) {
+          alert("Password not match!");
+          return;
+        }
         $.ajax({
           type: "POST",
           url: url + "member",
           data: JSON.stringify({
-			U_Username: form.elements['username'].value,
-			U_password: form.elements['password1'].value,
-			U_email : form.elements['email'].value,
-			U_age : form.elements['age'].value,
-			U_gender : form.elements['gender'].value,
-			U_name : form.elements['name'].value,
-			U_surname : form.elements['surname'].value,
-			U_occupation : form.elements['occupation'].value,
-			U_catId : form.elements['shop'].value
-		  }),
-          success: res => {
-			  if(res.Result === "Username already use")
-				alert("Username already use!")
-			  else alert("SignUp Success!")
-		  },
-		  contentType: 'application/json',
-        dataType: 'json'
+            U_Username: form.elements["username"].value,
+            U_password: form.elements["password1"].value,
+            U_email: form.elements["email"].value,
+            U_age: form.elements["age"].value,
+            U_gender: form.elements["gender"].value,
+            U_name: form.elements["name"].value,
+            U_surname: form.elements["surname"].value,
+            U_occupation: form.elements["occupation"].value,
+            U_catId: form.elements["shop"].value,
+          }),
+          success: (res) => {
+            if (res.Result === "Username already use")
+              alert("Username already use!");
+            else alert("SignUp Success!");
+          },
+          contentType: "application/json",
+          dataType: "json",
         });
       }
-	  function reserveQueue() {
-		  let form = document.getElementById("reserveQueue")
-		  console.log({Q_Username: form.elements['username'].value,
-			Q_Password: form.elements['password'].value,
-			Q_shopID: 0, // fixed
-		})
-		  $.ajax({
+      function reserveQueue() {
+        let form = document.getElementById("reserveQueue");
+        console.log({
+          Q_Username: form.elements["username"].value,
+          Q_Password: form.elements["password"].value,
+          Q_shopID: 0, // fixed
+        });
+        $.ajax({
           type: "POST",
           url: url + "queue",
           data: JSON.stringify({
-			Q_Username: form.elements['username'].value,
-			Q_password: form.elements['password'].value,
-			Q_shopID: 0, // fixed
-		  }),
-          success: res => {
-			  if(res.Result === "This Username already in queue") {
-				$('#reserve-alert').addClass("alert-danger")
-				$('#reserve-alert').html("Your're in queued.")
-				return
-			  }
-			  if(res.Result === "Wrong Username or Password") {
-				$('#reserve-alert').addClass("alert-danger")
-				$('#reserve-alert').html(res.Result)
-				  return
-			  }
-			  $('#reserve-alert').addClass("alert-success")
-			  $('#reserve-alert').html("Reserved!")
-
-		  },
-		  contentType: 'application/json',
-        dataType: 'json'
+            Q_Username: form.elements["username"].value,
+            Q_password: form.elements["password"].value,
+            Q_shopID: 0, // fixed
+          }),
+          success: (res) => {
+            if (res.Result === "This Username already in queue") {
+              $("#reserve-alert").addClass("alert-danger");
+              $("#reserve-alert").html("Your're in queued.");
+              return;
+            }
+            if (res.Result === "Wrong Username or Password") {
+              $("#reserve-alert").addClass("alert-danger");
+              $("#reserve-alert").html(res.Result);
+              return;
+            }
+            $("#reserve-alert").addClass("alert-success");
+            $("#reserve-alert").html("Reserved!");
+          },
+          contentType: "application/json",
+          dataType: "json",
         });
-	  }
-
+      }
+      function checkQueue() {
+        let form = document.getElementById("checkQueue")
+        console.log({
+          Q_Username: form.elements["username"].value,
+          Q_Password: form.elements["password"].value,
+          Q_shopID: 0, // fixed
+        });
+        $('#checkQueue').hide()
+      }
     </script>
   </body>
 </html>
