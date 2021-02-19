@@ -32,6 +32,8 @@
     />
   </head>
   <body>
+      <div class="alert" role="alert" style="position: fixed; top: 5%; z-index: 10;" id="handle-response">
+      </div>
     <div class="app-container">
       <h2 style="margin-left: 24px">Dashboard</h2>
       <div class="app-content">
@@ -522,7 +524,52 @@
   <script src="assets/js/bootstrap.min.js"></script>
   <script>
     const url = "http://158.108.182.2:50006/";
-    setInterval(() => {
+    function checkQueue() {
+        let form = document.getElementById("checkQueue")
+        console.log({
+          Q_Username: form.elements["username"].value,
+          Q_Password: form.elements["password"].value,
+          Q_shopID: 0, // fixed
+        });
+        $.ajax({
+          type: "POST",
+          url: url + "now_queue",
+          data: JSON.stringify({
+            Q_Username: form.elements["username"].value,
+            Q_password: form.elements["password"].value,
+            // Q_shopID: 0, // fixed
+          }),
+          success: (res) => {
+            $('#checkQueue').hide()
+            if(res.Result === 'Wrong Username Password or Not have data in queue') {
+              $('#info').html(res.Result)
+              return
+            }
+            $('#info').html("Your queue ID: " + res.Q_queueID + "\nWaiting List: " + res.now)
+          },
+          contentType: "application/json",
+          dataType: "json",
+        });
+
+      }
+    function submitForm(id) {
+        let form = document.getElementById('form'+id)
+
+        $.ajax({
+            type: "POST",
+            url: url + "add_wristband",
+            data: JSON.stringify({
+              W_Username: form.elements[0].value,
+              W_wristbandID: id
+            }),
+            success: (res) => {
+              console.log(res)
+            },
+            contentType: "application/json",
+            dataType: "json",
+          });
+    }
+    let html = "";
       $.ajax({
         type: "POST",
         url: url + "get_wristband",
@@ -530,9 +577,10 @@
           Wr_status: 0,
         }),
         success: (res) => {
-          let html = "";
           res.Result.map((r) => {
-            html += `<div class="message-box left-green">
+            html += `
+            <form onsubmit="event.preventDefault(); submitForm(${r}); " id="form${r}">
+                <div class="message-box left-green">
               <div class="message-content">
                 <div class="message-header">
                     <div>
@@ -540,12 +588,12 @@
                         <p class="message-line">Available</p>
                     </div>
                   <div class="input-block">
-                      <input type="text" id="name" placeholder="Username" style="margin-top: 10px;"/>
-                      <button class="btn" style="margin-top: 10px">Add</button>
+                      <input type="text" id="name${r}" placeholder="Username" style="margin-top: 10px;"/>
+                      <button type="submit"class="btn" style="margin-top: 10px">Add</button>
                   </div>
                 </div>
               </div>
-            </div>`;
+            </div></form>`;
           });
           $.ajax({
             type: "POST",
@@ -575,6 +623,9 @@
         contentType: "application/json",
         dataType: "json",
       });
-    }, 1000);
+    $( "form" ).on( "submit", function( event ) {
+        event.preventDefault();
+        console.log( $( this ).serialize() );
+    });
   </script>
 </html>
