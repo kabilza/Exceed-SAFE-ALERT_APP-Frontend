@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,700;0,800;1,700&display=swap");
 
 body,
 html {
@@ -335,7 +336,8 @@ button:focus {
 #mu-hero {
   display: inline;
   float: left;
-  padding: 160px 0 90px;
+  padding-top: 160px;
+  padding-bottom: 90px;
   width: 100%;
 }
 
@@ -1142,6 +1144,20 @@ counter-name {
   .mu-contact-content {
     padding: 0 10%;
   }
+
+  p.intro-p {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-family: "Exo 2", sans-serif;
+    color: rgb(240, 235, 235);
+  }
+
+  .admin-intro {
+    padding-top: 45px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1273,4 +1289,48 @@ counter-name {
 .top-right .flex-between {
   display: flex;
   justify-content: space-between;
+}
+
+.admin-intro {
+  padding-top: 45px;
+}
+
+h1.intro {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 50px;
+  color: rgb(54, 49, 49);
+}
+
+p.intro-p {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-family: "Exo 2", sans-serif;
+  color: rgb(240, 235, 235);
+}
+
+.container-proj2 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  padding-top: 20px;
+  border: 2px hidden;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 25px;
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  margin-bottom: 45px;
+  margin-top: 5px;
+}
+
+.mu-book-overview-area-admin {
+  display: inline;
+  float: left;
+  padding: 50px 0;
+  width: 100%;
 }
