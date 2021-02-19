@@ -122,9 +122,28 @@
     <script type="text/javascript" src="assets/js/jscript1.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script>
-      window.onload = function graphData(){
-          var dataPoints = [];
+      window.onload = graphData1();
+      var dataPoint1 = [];
 
+      function addData1(data) {
+              console.log(Object.keys(data)[1])
+            for (var i = 0; i < 10; i++) {
+              dataPoint1.push({
+                label: String(Object.keys(data)[i]),
+                y: parseInt(Object.values(data)[i])
+              });
+            }
+          }
+
+      function graphData1(){
+        $.ajax({
+          type:"GET",
+          url: "http://158.108.182.2:3000/get_graph1",
+          success: (data) => {addData1(data), console.log(data)},
+          contentType: "application/json",
+          dataType: "json",
+        })
+        console.log(dataPoint1)
           var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             theme: "light2",
@@ -143,25 +162,11 @@
             data: [{
               type: "column",
               yValueFormatString: "People",
-              dataPoints: dataPoints
+              dataPoint1: dataPoint1
             }]
           });
-
-          function addData(data) {
-              console.log(Object.keys(data)[1])
-            for (var i = 0; i < 10; i++) {
-              dataPoints.push({
-                label: String(Object.keys(data)[i]),
-                y: parseInt(Object.values(data)[i])
-              });
-            }
-            chart.render();
-
-          }
-
-          console.log(dataPoints)
-
-          $.getJSON("http://158.108.182.2:3000/get_graph1", (data) => {addData(data), console.log(data)});
+          
+          chart.render();
 }
     </script>
   </body>
