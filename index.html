@@ -114,6 +114,7 @@
                       </h5>
                     </div>
                     <div class="modal-body">
+                      <div id="info"></div>
                       <form
                         id="checkQueue"
                         onsubmit="event.preventDefault(); checkQueue();"
@@ -149,6 +150,7 @@
                         type="button"
                         class="btn btn-secondary"
                         data-dismiss="modal"
+                        onclick="$('#info').html(''); $('#checkQueue').show()"
                       >
                         Close
                       </button>
@@ -172,8 +174,7 @@
                     <div class="col-md-3 col-sm-6">
                       <div class="mu-single-counter">
                         <i class="fa fa-users" aria-hidden="true"></i>
-                        <div class="counter-value" data-count="19">0</div>
-                        <div class="counter-value">/ 25</div>
+                        <div class="counter-value" id="people-in-shop">0 / 0</div>
                         <h5 class="mu-counter-name">People in Shop</h5>
                       </div>
                     </div>
@@ -182,7 +183,7 @@
                     <!-- Start Single Counter -->
                     <div class="col-md-3 col-sm-6">
                       <div class="mu-single-counter">
-                        <div class="mu-counter-time" id="current-time"></div>
+                        <div class="counter-value" id="current-time"></div>
                         <h5 class="mu-counter-name">Current Time</h5>
                       </div>
                     </div>
@@ -191,7 +192,7 @@
                     <!-- Start Single Counter -->
                     <div class="col-md-3 col-sm-6">
                       <div class="mu-single-counter">
-                        <div class="counter-value" data-count="1055">0</div>
+                        <div class="counter-value">0</div>
                         <h5 class="mu-counter-name">Recent Quit</h5>
                       </div>
                     </div>
@@ -200,7 +201,7 @@
                     <!-- Start Single Counter -->
                     <div class="col-md-3 col-sm-6">
                       <div class="mu-single-counter">
-                        <h1 class="mu-counter-time">21:58:25</h1>
+                        <h1 class="counter-value">21:58:25</h1>
                         <h5 class="mu-counter-name">Last Entered</h5>
                       </div>
                     </div>
@@ -208,7 +209,7 @@
 
                     <div class="col-md-3 col-sm-6">
                       <div class="mu-single-counter">
-                        <h1 class="mu-counter-time">22:02:00</h1>
+                        <h1 class="counter-value">22:02:00</h1>
                         <h5 class="mu-counter-name">Last Exited</h5>
                       </div>
                     </div>
@@ -511,7 +512,26 @@
           Q_Password: form.elements["password"].value,
           Q_shopID: 0, // fixed
         });
-        $('#checkQueue').hide()
+        $.ajax({
+          type: "POST",
+          url: url + "now_queue",
+          data: JSON.stringify({
+            Q_Username: form.elements["username"].value,
+            Q_password: form.elements["password"].value,
+            // Q_shopID: 0, // fixed
+          }),
+          success: (res) => {
+            $('#checkQueue').hide()
+            if(res.Result === 'Wrong Username Password or Not have data in queue') {
+              $('#info').html(res.Result)
+              return
+            }
+            $('#info').html("Your queue ID: " + res.Q_queueID + "\nWaiting List: " + res.now)
+          },
+          contentType: "application/json",
+          dataType: "json",
+        });
+
       }
     </script>
   </body>

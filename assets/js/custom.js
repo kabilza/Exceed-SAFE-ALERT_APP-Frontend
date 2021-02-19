@@ -131,12 +131,36 @@
       const waitList = queues.filter((queue) => queue.Q_status === 0).length;
       $("#pending-queue").html("People In Queue: " + waitList);
       $("#time-estimated").html(
-        "Estimated Time: " +
-          Math.floor((waitList * 30) / 60) +
-          " h " +
-          ((waitList * 30) % 60) +
-          " m"
+        "Estimated Time: " + waitList * 30 + " minutes"
       );
+    });
+    $.ajax({
+      type: "POST",
+      url: url + "get_wristband",
+      data: JSON.stringify({
+        Wr_status: 0,
+      }),
+      success: (res0) => {
+        $.ajax({
+          type: "POST",
+          url: url + "get_wristband",
+          data: JSON.stringify({
+            Wr_status: 1,
+          }),
+          success: (res1) => {
+            console.log("resss", res1);
+            $("#people-in-shop").html(
+              res1.Result.length +
+                " / " +
+                (res1.Result.length + res0.Result.length)
+            );
+          },
+          contentType: "application/json",
+          dataType: "json",
+        });
+      },
+      contentType: "application/json",
+      dataType: "json",
     });
   }, 1000);
 })(jQuery);
