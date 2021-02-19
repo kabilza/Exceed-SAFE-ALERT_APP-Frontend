@@ -526,7 +526,6 @@
     const url = "http://158.108.182.2:50006/";
     function submitForm(id) {
         let form = document.getElementById('form'+id)
-
         $.ajax({
             type: "POST",
             url: url + "add_wristband",
@@ -551,6 +550,19 @@
                     $('#handle-response').removeClass("alert-success")
                 }, 1000)
                 init();
+
+                $.ajax({
+                    type: "PATCH",
+                    url: url + "queue",
+                    data: JSON.stringify({
+                        Q_queueID: id,
+                        Q_status: 1
+                    }),
+                    success: (res2) => {
+                    },
+                    contentType: "application/json",
+                    dataType: "json",
+                });
             },
             contentType: "application/json",
             dataType: "json",
