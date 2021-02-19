@@ -81,7 +81,9 @@
               </div>
             </div>
         </div>
-        <div class="container-proj2">Graph 1</div>
+        <div class="container-proj2">
+          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+        </div>
         <div class="container-proj2">Graph 2</div>
         <div class="container-proj2">Graph 3</div>
         <div class="container-proj2">Graph 4</div>
@@ -112,11 +114,55 @@
       </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/slick.min.js"></script>
     <script type="text/javascript" src="assets/js/counter.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
     <script type="text/javascript" src="assets/js/custom.js"></script>
     <script type="text/javascript" src="assets/js/jscript1.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+      window.onload = function graphData(){
+          var dataPoints = [];
+
+          var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2",
+            title: {
+              text: "Numbers of people in age group"
+            },
+            axisY: {
+              title: "Number of People",
+              titleFontSize: 24,
+              includeZero: true
+            },
+              axisX: {
+              title: "Age Range",
+              titleFontSize: 24
+            },
+            data: [{
+              type: "column",
+              yValueFormatString: "People",
+              dataPoints: dataPoints
+            }]
+          });
+
+          function addData(data) {
+              console.log(Object.keys(data)[1])
+            for (var i = 0; i < 10; i++) {
+              dataPoints.push({
+                label: String(Object.keys(data)[i]),
+                y: parseInt(Object.values(data)[i])
+              });
+            }
+            chart.render();
+
+          }
+
+          console.log(dataPoints)
+
+          $.getJSON("http://158.108.182.2:3000/get_graph1", (data) => {addData(data), console.log(data)});
+}
+    </script>
   </body>
 </html>
