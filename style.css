@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap");
 
 body,
 html {
@@ -187,7 +187,14 @@ button:focus {
 }
 
 .mu-secondary-btn {
-  background-image: linear-gradient(to right top, #0c3705, #296110, #4d8d17, #77bb18, #a8eb12);
+  background-image: linear-gradient(
+    to right top,
+    #0c3705,
+    #296110,
+    #4d8d17,
+    #77bb18,
+    #a8eb12
+  );
   border-radius: 100px;
   color: #ffffff;
   display: inline-block;
@@ -383,10 +390,10 @@ button:focus {
 }
 
 .mu-counter-time {
-	padding-top: 1em;
-	font-size: 30px;
-	color: rgb(231, 114, 71);
-	font-family: 'Montserrat', sans-serif;
+  padding-top: 1em;
+  font-size: 30px;
+  color: rgb(231, 114, 71);
+  font-family: "Montserrat", sans-serif;
 }
 
 .mu-counter-area {
@@ -442,14 +449,15 @@ counter-name {
 /* BOOK OVERVIEW */
 /*--------------------*/
 
-#mu-book-overview {
+#mu-reserve {
   background-color: #f8f8f8;
   display: inline;
   float: left;
   width: 100%;
+  min-height: 100vh;
 }
 
-.mu-book-overview-area {
+.mu-reserve-area {
   display: inline;
   float: left;
   padding: 100px 0;
@@ -478,14 +486,14 @@ counter-name {
   margin-bottom: 20px;
 }
 
-.mu-book-overview-content {
+.mu-reserve-content {
   display: inline;
   float: left;
   margin-top: 70px;
   width: 100%;
 }
 
-.mu-book-overview-single {
+.mu-reserve-single {
   display: inline;
   float: left;
   text-align: center;
@@ -495,14 +503,14 @@ counter-name {
   margin: 10px 0 15px;
 }
 
-.mu-book-overview-icon-box {
+.mu-reserve-icon-box {
   font-size: 25px;
   padding: 5px 12px;
   margin-bottom: 30px;
   display: inline-block;
 }
 
-.mu-book-overview-single h4 {
+.mu-reserve-single h4 {
   margin-bottom: 20px;
 }
 
@@ -1259,7 +1267,7 @@ counter-name {
   display: flex;
   flex-direction: column;
   border-radius: 25px;
-  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
 }
 
 .top-right .flex-between {

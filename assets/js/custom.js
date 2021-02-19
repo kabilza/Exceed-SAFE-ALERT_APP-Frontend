@@ -127,9 +127,16 @@
   const url = "http://158.108.182.2:50006/";
   setInterval(() => {
     $.get(url + "queue", function (data, status) {
-      const queues = data.Result
-      const waitList = queues.filter(queue => queue.Q_status === 0).length
-      
+      const queues = data.Result;
+      const waitList = queues.filter((queue) => queue.Q_status === 0).length;
+      $("#pending-queue").html("People In Queue: " + waitList);
+      $("#time-estimated").html(
+        "Estimated Time: " +
+          Math.floor((waitList * 30) / 60) +
+          " h " +
+          ((waitList * 30) % 60) +
+          " m"
+      );
     });
-  }, 2000);
+  }, 1000);
 })(jQuery);
