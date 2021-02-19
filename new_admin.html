@@ -524,34 +524,6 @@
   <script src="assets/js/bootstrap.min.js"></script>
   <script>
     const url = "http://158.108.182.2:50006/";
-    function checkQueue() {
-        let form = document.getElementById("checkQueue")
-        console.log({
-          Q_Username: form.elements["username"].value,
-          Q_Password: form.elements["password"].value,
-          Q_shopID: 0, // fixed
-        });
-        $.ajax({
-          type: "POST",
-          url: url + "now_queue",
-          data: JSON.stringify({
-            Q_Username: form.elements["username"].value,
-            Q_password: form.elements["password"].value,
-            // Q_shopID: 0, // fixed
-          }),
-          success: (res) => {
-            $('#checkQueue').hide()
-            if(res.Result === 'Wrong Username Password or Not have data in queue') {
-              $('#info').html(res.Result)
-              return
-            }
-            $('#info').html("Your queue ID: " + res.Q_queueID + "\nWaiting List: " + res.now)
-          },
-          contentType: "application/json",
-          dataType: "json",
-        });
-
-      }
     function submitForm(id) {
         let form = document.getElementById('form'+id)
 
@@ -563,12 +535,28 @@
               W_wristbandID: id
             }),
             success: (res) => {
-              console.log(res)
+                if(res.Result) {
+                $('#handle-response').addClass("alert-danger")
+                $('#handle-response').html(res.Result)
+                setTimeout(() => {
+                    $('#handle-response').html("")
+                    $('#handle-response').removeClass("alert-danger")
+                }, 1000)
+                return
+                }
+                $('#handle-response').addClass("alert-success")
+                $('#handle-response').html("Successful!")
+                setTimeout(() => {
+                    $('#handle-response').html("")
+                    $('#handle-response').removeClass("alert-success")
+                }, 1000)
+                init();
             },
             contentType: "application/json",
             dataType: "json",
           });
     }
+    function init() {
     let html = "";
       $.ajax({
         type: "POST",
@@ -623,6 +611,8 @@
         contentType: "application/json",
         dataType: "json",
       });
+    }
+    init()
     $( "form" ).on( "submit", function( event ) {
         event.preventDefault();
         console.log( $( this ).serialize() );
