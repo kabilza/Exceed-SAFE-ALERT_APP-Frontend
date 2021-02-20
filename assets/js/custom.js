@@ -128,10 +128,10 @@
   setInterval(() => {
     $.get(url + "infor", function (data, status) {
       $("#last-enter").html(
-        dayjs(data.S_lastest_time_enter * 1000).format("DD/MM/YYYY hh:mm:ss")
+        dayjs(data.S_lastest_time_enter * 1000).format("DD/MM/YYYY HH:mm:ss")
       );
       $("#last-exit").html(
-        dayjs(data.S_lastest_time_left * 1000).format("DD/MM/YYYY hh:mm:ss")
+        dayjs(data.S_lastest_time_left * 1000).format("DD/MM/YYYY HH:mm:ss")
       );
       $("#total").html(data.Total);
     });
