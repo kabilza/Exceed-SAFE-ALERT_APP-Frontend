@@ -82,13 +82,23 @@
             </div>
         </div>
         <div class="container-proj2">
-          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+          <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
         </div>
-        <div class="container-proj2">Graph 2</div>
-        <div class="container-proj2">Graph 3</div>
-        <div class="container-proj2">Graph 4</div>
-        <div class="container-proj2">Graph 5</div>
-        <div class="container-proj2">Graph 6</div>
+        <div class="container-proj2">
+          <div id="chartContainer2" style="height: 370px; width: 100%;"></div>
+        </div>
+        <div class="container-proj2">
+          <div id="chartContainer3" style="height: 370px; width: 100%;"></div>
+        </div>
+        <div class="container-proj2">
+          <div id="chartContainer4" style="height: 370px; width: 100%;"></div>
+        </div>
+        <div class="container-proj2">
+          <div id="chartContainer5" style="height: 370px; width: 100%;"></div>
+        </div>
+        <div class="container-proj2">
+          <div id="chartContainer6" style="height: 370px; width: 100%;"></div>
+        </div>
       </section>
       
     </main>
@@ -96,23 +106,7 @@
     <!-- End main content -->
 
     <!-- Start footer -->
-    <footer id="mu-footer" role="contentinfo">
-      <div class="container">
-        <div class="mu-footer-area">
-          <div class="mu-social-media">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-google-plus"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-          </div>
-          <p class="mu-copyright">
-            &copy; Copyright
-            <a rel="nofollow" href="http://markups.io">markups.io</a>. All right
-            reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/slick.min.js"></script>
@@ -122,51 +116,272 @@
     <script type="text/javascript" src="assets/js/jscript1.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script>
-      window.onload = graphData1();
-      var dataPoint1 = [];
-
-      function addData1(data) {
-              console.log(Object.keys(data)[1])
-            for (var i = 0; i < 10; i++) {
-              dataPoint1.push({
-                label: String(Object.keys(data)[i]),
-                y: parseInt(Object.values(data)[i])
-              });
-            }
-          }
-
-      function graphData1(){
+      window.onload = getData1(), getData2(), getData3(), getData4(), getData5(), getData6(), graphData1(), graphData2(), graphData3(), graphData4(), graphData5(), graphData6();
+      function getData1(){
         $.ajax({
           type:"GET",
           url: "http://158.108.182.2:3000/get_graph1",
-          success: (data) => {addData1(data), console.log(data)},
+          success: (data) => {graphData1(data), console.log(data)},
           contentType: "application/json",
           dataType: "json",
         })
-        console.log(dataPoint1)
-          var chart = new CanvasJS.Chart("chartContainer", {
-            animationEnabled: true,
-            theme: "light2",
-            title: {
-              text: "Numbers of people in age group"
-            },
-            axisY: {
-              title: "Number of People",
-              titleFontSize: 24,
-              includeZero: true
-            },
-              axisX: {
-              title: "Age Range",
-              titleFontSize: 24
-            },
-            data: [{
-              type: "column",
-              yValueFormatString: "People",
-              dataPoint1: dataPoint1
-            }]
+      }
+
+      function graphData1(data){
+        var dataPoint1 = [];
+        var numloop = Object.keys(data).length;
+        for (var i = 0; i < numloop; i++) {
+          dataPoint1.push({
+            label: String(Object.keys(data)[i]),
+            y: parseInt(Object.values(data)[i])
           });
-          
-          chart.render();
+        }
+        console.log(dataPoint1)
+        var chart = new CanvasJS.Chart("chartContainer1", {
+          animationEnabled: true,
+          theme: "light2",
+          title: {
+            text: "Numbers of people in age group"
+          },
+          axisY: {
+            title: "Number of People",
+            titleFontSize: 24,
+            includeZero: true
+          },
+            axisX: {
+            title: "Age Range",
+            titleFontSize: 24
+          },
+          data: [{
+            type: "column",
+            yValueFormatString: "People",
+            dataPoints: dataPoint1
+          }]
+        });
+      chart.render();
+}
+
+function getData2(){
+    $.ajax({
+      type:"GET",
+      url: "http://158.108.182.2:3000/get_graph2",
+      success: (data) => {graphData2(data), console.log(data)},
+      contentType: "application/json",
+      dataType: "json",
+    })
+  }
+
+  function graphData2(data){
+    var dataPoint2 = [];
+    var numloop = Object.keys(data).length;
+    for (var i = 0; i < numloop; i++) {
+      dataPoint2.push({
+        label: String(Object.keys(data)[i]),
+        y: parseInt(Object.values(data)[i])
+      });
+    }
+    console.log(dataPoint2)
+    var chart2 = new CanvasJS.Chart("chartContainer2", {
+      animationEnabled: true,
+      theme: "light2",
+      title: {
+        text: "Numbers of genders in shop"
+      },
+      axisY: {
+        title: "Number of People",
+        titleFontSize: 24,
+        includeZero: true
+      },
+        axisX: {
+        title: "Gender",
+        titleFontSize: 24
+      },
+      data: [{
+        type: "column",
+        yValueFormatString: "People",
+        dataPoints: dataPoint2
+      }]
+    });
+  chart2.render();
+}
+
+function getData3(){
+    $.ajax({
+      type:"GET",
+      url: "http://158.108.182.2:3000/get_graph3",
+      success: (data) => {graphData3(data), console.log(data)},
+      contentType: "application/json",
+      dataType: "json",
+    })
+  }
+
+  function graphData3(data){
+    var dataPoint3 = [];
+    var numloop = Object.keys(data).length;
+    for (var i = 0; i < numloop; i++) {
+      dataPoint3.push({
+        label: String(Object.keys(data)[i]),
+        y: parseInt(Object.values(data)[i])
+      });
+    }
+    console.log(dataPoint3)
+    var chart3 = new CanvasJS.Chart("chartContainer3", {
+      animationEnabled: true,
+      theme: "light2",
+      title: {
+        text: "Customers Occupation Catagory Population"
+      },
+      axisY: {
+        title: "Number of People",
+        titleFontSize: 24,
+        includeZero: true
+      },
+        axisX: {
+        title: "Occupation",
+        titleFontSize: 5
+      },
+      data: [{
+        type: "column",
+        yValueFormatString: "People",
+        dataPoints: dataPoint3
+      }]
+    });
+  chart3.render();
+}
+
+function getData4(){
+    console.log("getting data from graph4")
+    $.ajax({
+      type:"GET",
+      url: "http://158.108.182.2:3000/get_graph4",
+      success: (data) => {graphData4(data), console.log(data)},
+      contentType: "application/json",
+      dataType: "json"
+    })
+  }
+
+  function graphData4(data){
+    var dataPoint4 = [];
+    var numloop = Object.keys(data).length;
+    for (var i = 0; i < numloop; i++) {
+      dataPoint4.push({
+        label: String(Object.keys(data)[i]),
+        y: parseInt(Object.values(data)[i])
+      });
+    }
+    console.log(dataPoint4)
+    var chart4 = new CanvasJS.Chart("chartContainer4", {
+      animationEnabled: true,
+      theme: "light2",
+      title: {
+        text: "Range of time period customers spent in shop"
+      },
+      axisY: {
+        title: "Number of People",
+        titleFontSize: 24,
+        includeZero: true
+      },
+        axisX: {
+        title: "Range of Time",
+        titleFontSize: 24
+      },
+      data: [{
+        type: "column",
+        yValueFormatString: "People",
+        dataPoints: dataPoint4
+      }]
+    });
+  chart4.render();
+}
+
+function getData5(){
+    console.log("getting data from graph5")
+    $.ajax({
+      type:"GET",
+      url: "http://158.108.182.2:3000/get_graph5",
+      success: (data) => {graphData5(data), console.log(data)},
+      contentType: "application/json",
+      dataType: "json"
+    })
+  }
+
+  function graphData5(data){
+    var dataPoint5 = [];
+    var numloop = Object.keys(data).length;
+    for (var i = 0; i < numloop; i++) {
+      dataPoint5.push({
+        label: String(Object.keys(data)[i]),
+        y: parseInt(Object.values(data)[i])
+      });
+    }
+    console.log(dataPoint5)
+    var chart5 = new CanvasJS.Chart("chartContainer5", {
+      animationEnabled: true,
+      theme: "light2",
+      title: {
+        text: "Number of people visiting shop hours by hours"
+      },
+      axisY: {
+        title: "Number of People",
+        titleFontSize: 24,
+        includeZero: true
+      },
+        axisX: {
+        title: "Time",
+        titleFontSize: 24
+      },
+      data: [{
+        type: "column",
+        yValueFormatString: "People",
+        dataPoints: dataPoint5
+      }]
+    });
+  chart5.render();
+}
+
+function getData6(){
+    console.log("getting data from graph6")
+    $.ajax({
+      type:"GET",
+      url: "http://158.108.182.2:3000/get_graph6",
+      success: (data) => {graphData6(data), console.log(data)},
+      contentType: "application/json",
+      dataType: "json"
+    })
+  }
+
+  function graphData6(data){
+    var dataPoint6 = [];
+    var numloop = Object.keys(data).length;
+    for (var i = 0; i < numloop; i++) {
+      dataPoint6.push({
+        label: String(Object.keys(data)[i]),
+        y: parseInt(Object.values(data)[i])
+      });
+    }
+    console.log(dataPoint6)
+    var chart6 = new CanvasJS.Chart("chartContainer6", {
+      animationEnabled: true,
+      theme: "light2",
+      title: {
+        text: "Number of customers most preferred shop catagories"
+      },
+      axisY: {
+        title: "Number of People",
+        titleFontSize: 24,
+        includeZero: true
+      },
+        axisX: {
+        title: "Shop Catagories",
+        titleFontSize: 24
+      },
+      data: [{
+        type: "column",
+        yValueFormatString: "People",
+        dataPoints: dataPoint6
+      }]
+    });
+  chart6.render();
 }
     </script>
   </body>
