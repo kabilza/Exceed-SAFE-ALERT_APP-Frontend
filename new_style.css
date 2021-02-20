@@ -492,10 +492,10 @@ a {
 }
 .project-boxes.jsGridView {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 .project-boxes.jsGridView .project-box-wrapper {
-  width: 33.3%;
+  width: 100%;
 }
 .project-boxes.jsListView .project-box {
   display: flex;
