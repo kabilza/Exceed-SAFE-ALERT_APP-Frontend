@@ -23,6 +23,7 @@
       href="https://fonts.googleapis.com/css?family=Lato"
       rel="stylesheet"
     />
+    <title>Safe Alert App : Admin</title>
   </head>
 
   <body onload="display_ct();">
@@ -52,9 +53,9 @@
               id="bs-example-navbar-collapse-1"
             >
               <ul class="nav navbar-nav mu-menu navbar-right">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#reserve">Reserve</a></li>
-                <li><a href="#mu-contact">SIGN UP/SIGN IN</a></li>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#mu-reserve">Reserve</a></li>
+                <li><a href="index.html#mu-contact">SIGN UP/SIGN IN</a></li>
               </ul>
             </div>
           </div>
@@ -120,7 +121,7 @@
       function getData1(){
         $.ajax({
           type:"GET",
-          url: "http://158.108.182.2:3000/get_graph1",
+          url: "http://158.108.182.2:50006/get_graph1",
           success: (data) => {graphData1(data), console.log(data)},
           contentType: "application/json",
           dataType: "json",
@@ -164,7 +165,7 @@
 function getData2(){
     $.ajax({
       type:"GET",
-      url: "http://158.108.182.2:3000/get_graph2",
+      url: "http://158.108.182.2:50006/get_graph2",
       success: (data) => {graphData2(data), console.log(data)},
       contentType: "application/json",
       dataType: "json",
@@ -208,7 +209,7 @@ function getData2(){
 function getData3(){
     $.ajax({
       type:"GET",
-      url: "http://158.108.182.2:3000/get_graph3",
+      url: "http://158.108.182.2:50006/get_graph3",
       success: (data) => {graphData3(data), console.log(data)},
       contentType: "application/json",
       dataType: "json",
@@ -253,7 +254,7 @@ function getData4(){
     console.log("getting data from graph4")
     $.ajax({
       type:"GET",
-      url: "http://158.108.182.2:3000/get_graph4",
+      url: "http://158.108.182.2:50006/get_graph4",
       success: (data) => {graphData4(data), console.log(data)},
       contentType: "application/json",
       dataType: "json"
@@ -298,7 +299,7 @@ function getData5(){
     console.log("getting data from graph5")
     $.ajax({
       type:"GET",
-      url: "http://158.108.182.2:3000/get_graph5",
+      url: "http://158.108.182.2:50006/get_graph5",
       success: (data) => {graphData5(data), console.log(data)},
       contentType: "application/json",
       dataType: "json"
@@ -343,7 +344,7 @@ function getData6(){
     console.log("getting data from graph6")
     $.ajax({
       type:"GET",
-      url: "http://158.108.182.2:3000/get_graph6",
+      url: "http://158.108.182.2:50006/get_graph6",
       success: (data) => {graphData6(data), console.log(data)},
       contentType: "application/json",
       dataType: "json"
@@ -382,7 +383,7 @@ function getData6(){
       }]
     });
   chart6.render();
-}
+  }
     </script>
   </body>
 </html>
